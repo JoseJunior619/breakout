@@ -33,7 +33,7 @@ class Breakout():
         max_lives = 99
         bat_speed = 30
         score = 0 
-        bgcolour = 0x2F, 0x4F, 0x4F  # darkslategrey        
+        bgcolour = 0,0,0  # darkslategrey
         size = width, height = 640, 480
 
         pygame.init()            
@@ -173,7 +173,7 @@ class Breakout():
                     yspeed = -yspeed                
                 pong.play(0)              
                 wall.brickrect[index:index + 1] = []
-                score += 10
+                score += 5
                           
             screen.fill(bgcolour)
             scoretext = pygame.font.Font(None,40).render(str(score), True, (0,255,255), bgcolour)
@@ -185,7 +185,8 @@ class Breakout():
                 screen.blit(wall.brick, wall.brickrect[i])    
 
             # if wall completely gone then rebuild it
-            if wall.brickrect == []:              
+            if wall.brickrect == []:
+                score += 100
                 wall.build_wall(width)                
                 xspeed = xspeed_init
                 yspeed = yspeed_init                
