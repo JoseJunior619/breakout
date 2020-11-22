@@ -30,7 +30,7 @@ class Breakout():
           
         xspeed_init = 6
         yspeed_init = 6
-        max_lives = 5
+        max_lives = 99
         bat_speed = 30
         score = 0 
         bgcolour = 0x2F, 0x4F, 0x4F  # darkslategrey        
@@ -75,11 +75,11 @@ class Breakout():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
         	            sys.exit()
-                    if event.key == pygame.K_LEFT:                        
+                    if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                         batrect = batrect.move(-bat_speed, 0)     
                         if (batrect.left < 0):                           
                             batrect.left = 0      
-                    if event.key == pygame.K_RIGHT:                    
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         batrect = batrect.move(bat_speed, 0)
                         if (batrect.right > width):                            
                             batrect.right = width
